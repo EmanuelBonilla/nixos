@@ -1,5 +1,5 @@
 {
-  description = "NixOs SAM-E1 Configuration";
+  description = "NixOs Configuration";
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   inputs.nixos25_05.url = "github:nixos/nixpkgs?ref=nixos-25.05";
   outputs =
@@ -14,7 +14,7 @@
       pkgs25 = import nixos25_05 { inherit system; };
     in
     {
-      nixosConfigurations.SAMD-E1 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.system = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
