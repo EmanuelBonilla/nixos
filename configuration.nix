@@ -1,17 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./system
-    ];
-
-  system.stateVersion = "25.05"; # Did you read the comment?
-
+  imports = [
+    ./host/hardware-configuration.nix # Load from ur build
+    ./host/boot.nix # Here write ur boot configuration
+    ./host/network.nix # Define firewall ports etc and Hostname
+    ./system
+    ./host/state-version.nix # Here write ur nix version, HERE U CAN IMPORT MORE CONFIGS FROM HOST AVOID NOT PREVIUSLY
+  ];
 }
-
