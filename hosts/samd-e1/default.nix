@@ -17,7 +17,6 @@ in
     ../../system
     ./boot.nix
     ./network.nix
-    ./desktops
   ]
   ++ builtins.concatMap (
     f:
