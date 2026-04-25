@@ -8,7 +8,6 @@
   imports = [
     ./users.nix
     ./locale.nix
-    ./network.nix
-    ./extra.nix
+    ./settings.nix
   ];
 }

@@ -13,6 +13,7 @@
     {
       nixosConfigurations.system = nixpkgs.lib.nixosSystem {
         inherit system;
+        inherit pkgs;
         modules = [
           ./configuration.nix
           (
@@ -21,7 +22,6 @@
               environment.systemPackages = with pkgs; [
                 neovim
                 git
-                docker
                 gh
                 home-manager
               ];
