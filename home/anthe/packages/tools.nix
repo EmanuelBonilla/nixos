@@ -6,5 +6,7 @@
     fzf
     ripgrep
     unzip
+    brightnessctl
+    xclip
   ];
 }

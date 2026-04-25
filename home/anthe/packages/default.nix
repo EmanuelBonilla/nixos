@@ -4,6 +4,6 @@
     ./compilers.nix
     ./tools.nix
     ./coding.nix
-    ./apps.nix
+    ./apps/default.nix
   ];
 }

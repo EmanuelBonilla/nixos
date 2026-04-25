@@ -2,8 +2,8 @@
 {
   home.packages = with pkgs; [
     lazygit
-    ncspot
-    kitty
     gh-copilot
+    mupen64plus
+    ncspot
   ];
 }
