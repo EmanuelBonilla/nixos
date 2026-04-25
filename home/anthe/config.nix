@@ -5,5 +5,5 @@
 {
   home.username = "anthe";
   home.homeDirectory = "/home/anthe";
-  home.stateVersion = hostVars.stateVersion;
+  home.stateVersion = hostVars.homeStateVersion;
 }

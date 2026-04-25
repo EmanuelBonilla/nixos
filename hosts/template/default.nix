@@ -8,7 +8,7 @@ let
   vars = import ./vars.nix;
 in
 {
-  system.stateVersion = vars.stateVersion;
+  system.stateVersion = vars.systemStateVersion;
   networking.hostName = vars.hostName;
   imports = [
     ./hardware-configuration.nix
