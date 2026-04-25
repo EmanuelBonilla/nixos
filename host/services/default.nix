@@ -9,5 +9,6 @@
     ./extras.nix
     ./openssh.nix
     ./pipewire.nix
+    ./network-manager.nix
   ];
 }
