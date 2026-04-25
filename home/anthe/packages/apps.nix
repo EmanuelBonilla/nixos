@@ -4,6 +4,6 @@
     lazygit
     ncspot
     kitty
-    github-copilot-cli
+    gh-copilot
   ];
 }
