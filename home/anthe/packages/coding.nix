@@ -7,5 +7,6 @@
     yaml-language-server
     bash-language-server
     nodePackages.vscode-json-languageserver
+    taplo
   ];
 }

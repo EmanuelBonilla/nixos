@@ -37,6 +37,7 @@
                   neovim
                   git
                   gh
+                  cargo-make
                 ];
               }
             )

@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
-let
-  vars = import ./vars.nix;
-in
+{
+  hostVars,
+  ...
+}:
 {
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -9,7 +9,7 @@ in
   services.openssh.enable = true;
   services.openssh.extraConfig = ''
     Port 2222
-    AllowUsers ${vars.mainUser}
+    AllowUsers ${hostVars.mainUser}
     PermitEmptyPasswords no
     PermitRootLogin no
     PasswordAuthentication yes

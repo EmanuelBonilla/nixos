@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     kitty
     mpv
     dmenu
-    firefox
+    ncspot
+    mupen64plus
   ];
 }

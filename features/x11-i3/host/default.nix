@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-let
-  vars = import ../vars.nix;
-in
+{ }:
 {
   services.xserver = {
     enable = true;
@@ -11,7 +8,7 @@ in
     enable = true;
     autoLogin = {
       enable = true;
-      user = vars.mainUser;
+      user = "anthe";
     };
   };
   services.xserver.videoDrivers = [
