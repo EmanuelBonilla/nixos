@@ -58,6 +58,7 @@
     in
     {
       nixosConfigurations = {
+        "wsl-atdf15" = mkHost { hostName = "wsl-atdf15"; };
         "samd-e1" = mkHost { hostName = "samd-e1"; };
         # template = mkHost { hostName = "template"; };
       };

@@ -4,13 +4,18 @@ script = [
   '''
   NEW_HOST_NAME="${1}"
   NIXOS_VERSION="${2}"
+  MAIN_USER="${3}"
 
   if [ -z "$NEW_HOST_NAME" ]; then
-    echo "Usage: makers new-host -- <host-name> <nixos-version>"
+    echo "Usage: makers new-host -- <host-name> <nixos-version> <main-user>"
     exit 1
   fi
   if [ -z "$NIXOS_VERSION" ]; then
-    echo "Usage: makers new-host -- <host-name> <nixos-version>"
+    echo "Usage: makers new-host -- <host-name> <nixos-version> <main-user>"
+    exit 1
+  fi
+  if [ -z "$MAIN_USER" ]; then
+    echo "Usage: makers new-host -- <host-name> <nixos-version> <main-user>"
     exit 1
   fi
   if [ -d "hosts/${NEW_HOST_NAME}" ]; then
@@ -30,6 +35,7 @@ script = [
   cp hardware-configuration.nix "hosts/${NEW_HOST_NAME}/hardware.nix"
   sed -i "s/NIXOS_VERSION/${NIXOS_VERSION}/g" "hosts/${NEW_HOST_NAME}/vars.nix"
   sed -i "s/NIXOS_HOSTNAME/${NEW_HOST_NAME}/g" "hosts/${NEW_HOST_NAME}/vars.nix"
+  sed -i "s/MAIN_USER/${MAIN_USER}/g" "hosts/${NEW_HOST_NAME}/vars.nix"
   sed -i "/nixosConfigurations = {/a\\
         \"${NEW_HOST_NAME}\" = mkHost { hostName = \"${NEW_HOST_NAME}\"; };" flake.nix
     ''',

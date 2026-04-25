@@ -7,5 +7,6 @@
     "desktop"
     "x11-i3"
     "x11"
+    "networkmanager"
   ];
 }
