@@ -6,7 +6,7 @@
     lua-language-server
     yaml-language-server
     bash-language-server
-    nodePackages.vscode-json-languageserver
+    vscode-json-languageserver
     taplo
   ];
 }
