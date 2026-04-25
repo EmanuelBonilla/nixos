@@ -1,33 +1,48 @@
 {
   description = "NixOs Configuration";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   outputs =
-    {
-      nixpkgs,
-      ...
-    }:
+    { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
     in
     {
       nixosConfigurations.system = nixpkgs.lib.nixosSystem {
         inherit system;
-        inherit pkgs;
+
         modules = [
           ./configuration.nix
+
           (
-            { config, pkgs, ... }:
+            { pkgs, ... }:
             {
+              nixpkgs.config.allowUnfree = true;
+
               environment.systemPackages = with pkgs; [
                 neovim
                 git
                 gh
-                home-manager
               ];
+            }
+          )
+
+          home-manager.nixosModules.home-manager
+          (
+            { ... }:
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.users.anthe = import ./home/anthe/default.nix;
             }
           )
         ];
