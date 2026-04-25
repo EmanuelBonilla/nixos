@@ -6,5 +6,8 @@
     dmenu
     ncspot
     mupen64plus
+    clipmenu
+    firefox
+    onlyoffice-desktopeditors
   ];
 }
