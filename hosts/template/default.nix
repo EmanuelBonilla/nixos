@@ -11,7 +11,7 @@ in
   system.stateVersion = hostVars.systemStateVersion;
   networking.hostName = hostVars.hostName;
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./boot.nix
     ../../system
     ./network.nix
