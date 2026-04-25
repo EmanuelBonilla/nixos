@@ -11,41 +11,53 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    inputs@{ nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
+
+      mkHost =
+        { hostName }:
+        let
+          hostDir = ./hosts/${hostName};
+          hostVars = import (hostDir + "/vars.nix");
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = { inherit inputs hostVars; };
+
+          modules = [
+            (import (hostDir + "/default.nix"))
+
+            (
+              { pkgs, ... }:
+              {
+                nixpkgs.config.allowUnfree = true;
+                environment.systemPackages = with pkgs; [
+                  neovim
+                  git
+                  gh
+                ];
+              }
+            )
+
+            home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = { inherit inputs hostVars; };
+                home-manager.users.anthe = import ./home/anthe/default.nix;
+              }
+            )
+          ];
+        };
     in
     {
-      nixosConfigurations.system = nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          ./configuration.nix
-
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.config.allowUnfree = true;
-
-              environment.systemPackages = with pkgs; [
-                neovim
-                git
-                gh
-              ];
-            }
-          )
-
-          home-manager.nixosModules.home-manager
-          (
-            { ... }:
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.users.anthe = import ./home/anthe/default.nix;
-            }
-          )
-        ];
+      nixosConfigurations = {
+        "samd-e1" = mkHost { hostName = "samd-e1"; };
+        # template = mkHost { hostName = "template"; };
       };
     };
 }

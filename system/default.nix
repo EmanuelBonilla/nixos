@@ -6,8 +6,9 @@
 }:
 {
   imports = [
-    ./users.nix
     ./locale.nix
-    ./settings.nix
+    ./services.nix
+    ./extras.nix
+    ./users
   ];
 }

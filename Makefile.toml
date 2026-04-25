@@ -1,0 +1,36 @@
+[tasks.new-host]
+description = "Create a new host"
+script = [
+  '''
+  NEW_HOST_NAME="${1}"
+  NIXOS_VERSION="${2}"
+
+  if [ -z "$NEW_HOST_NAME" ]; then
+    echo "Usage: makers new-host -- <host-name> <nixos-version>"
+    exit 1
+  fi
+  if [ -z "$NIXOS_VERSION" ]; then
+    echo "Usage: makers new-host -- <host-name> <nixos-version>"
+    exit 1
+  fi
+  if [ -d "hosts/${NEW_HOST_NAME}" ]; then
+    echo "Host ${NEW_HOST_NAME} already exists."
+    exit 1
+  fi
+  if [ ! -d "hosts/template" ]; then
+    echo "Template directory does not exist."
+    exit 1
+  fi
+  if [ ! -f "hardware-configuration.nix" ]; then
+    echo "hardware-configuration.nix file does not exist."
+    exit 1
+  fi
+
+  cp -r hosts/template "hosts/${NEW_HOST_NAME}"
+  cp hardware-configuration.nix "hosts/${NEW_HOST_NAME}/hardware.nix"
+  sed -i "s/NIXOS_VERSION/${NIXOS_VERSION}/g" "hosts/${NEW_HOST_NAME}/vars.nix"
+  sed -i "s/NIXOS_HOSTNAME/${NEW_HOST_NAME}/g" "hosts/${NEW_HOST_NAME}/vars.nix"
+  sed -i "/nixosConfigurations = {/a\\
+        \"${NEW_HOST_NAME}\" = mkHost { hostName = \"${NEW_HOST_NAME}\"; };" flake.nix
+    ''',
+]
