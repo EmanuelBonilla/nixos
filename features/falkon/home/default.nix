@@ -7,6 +7,6 @@ let
 in
 {
   home.packages = [
-    pkgs25.falkon
+    pkgs25.libsForQt5.falkon
   ];
 }
