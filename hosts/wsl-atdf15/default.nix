@@ -1,26 +1,12 @@
 {
-  hostVars,
-  lib,
   ...
 }:
-let
-  features = hostVars.features or [ ];
-  mkFeatureHostPath = f: ../../features + "/${f}/host/default.nix";
-in
 {
-  system.stateVersion = hostVars.systemStateVersion;
-  networking.hostName = hostVars.hostName;
+  time.timeZone = "America/Bogota";
+  console.keyMap = "us";
   imports = [
     ./hardware.nix
-    ../../system
+    ../host-load.nix
     ./network.nix
-  ]
-  ++ builtins.concatMap (
-    f:
-    let
-      p = mkFeatureHostPath f;
-    in
-    lib.optionals (builtins.pathExists p) [ p ]
-  ) features;
-
+  ];
 }

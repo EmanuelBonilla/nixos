@@ -7,4 +7,5 @@
     "x11"
     "docker"
   ];
+  users = [ "anthe" ];
 }

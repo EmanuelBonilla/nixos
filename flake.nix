@@ -45,13 +45,33 @@
 
             home-manager.nixosModules.home-manager
             (
-              { ... }:
+              { lib, ... }:
+              let
+                users = hostVars.users or [ ];
+
+                mkUserHomePath = u: ./users + "/${u}/home/default.nix";
+
+                requirePath =
+                  p:
+                  assert lib.assertMsg (builtins.pathExists p) "Missing Home Manager module: ${toString p}";
+                  p;
+
+                mkHmUser =
+                  u:
+                  let
+                    p = requirePath (mkUserHomePath u);
+                  in
+                  {
+                    name = u;
+                    value = import p;
+                  };
+              in
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "bak";
                 home-manager.extraSpecialArgs = { inherit inputs hostVars; };
-                home-manager.users.anthe = import ./home/anthe/default.nix;
+                home-manager.users = builtins.listToAttrs (map mkHmUser users);
               }
             )
           ];

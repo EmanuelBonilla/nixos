@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   # MUST IMPLEMENT THIS
   # This file is the boot file for the host. Is required to configure the bootloader for this host

@@ -10,4 +10,5 @@
     "networkmanager"
     "falkon"
   ];
+  users = [ "anthe" ];
 }
