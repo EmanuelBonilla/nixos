@@ -19,6 +19,7 @@ in
       unzip
       github-copilot-cli
       claude-code
+      opencode
     ]
     ++ lib.optionals (has "x11") [ xclip ]
     ++ lib.optionals (has "wayland") [ wl-clipboard ];
