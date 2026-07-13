@@ -11,8 +11,4 @@
       user = "anthe";
     };
   };
-  services.xserver.videoDrivers = [
-    "amdgpu"
-    "radeon"
-  ];
 }
