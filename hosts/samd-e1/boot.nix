@@ -17,6 +17,8 @@
     "quiet"
     "splash"
     "rd.systemd.show_status=false"
+    "i8042.nomux=1"
+    "i8042.reset"
     "rd.udev.log_level=3"
     "udev.log_priority=3"
     "loglevel=3"
