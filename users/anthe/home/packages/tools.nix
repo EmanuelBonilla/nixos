@@ -27,6 +27,7 @@ in
       cursor-cli
       awscli2
       openspec
+      ssm-session-manager-plugin
     ]
     ++ lib.optionals (has "x11") [ xclip ]
     ++ lib.optionals (has "wayland") [ wl-clipboard ];
