@@ -15,6 +15,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -85,6 +89,7 @@
     in
     {
       nixosConfigurations = {
+        "leno-idea3" = mkHost { hostName = "leno-idea3"; };
         "wsl-atdf15" = mkHost { hostName = "wsl-atdf15"; };
         "samd-e1" = mkHost { hostName = "samd-e1"; };
         # template = mkHost { hostName = "template"; };

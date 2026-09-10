@@ -2,12 +2,13 @@
 {
   home.packages = with pkgs; [
     kitty
-    mpv
+    vlc
     dmenu
     ncspot
     mupen64plus
     clipmenu
     firefox
+    thunderbird
     onlyoffice-desktopeditors
   ];
 }
