@@ -9,6 +9,7 @@
     "docker"
     "x11"
     "zen-browser"
+    "app-image"
   ];
   users = [ "anthe" ];
 }
