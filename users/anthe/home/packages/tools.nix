@@ -1,15 +1,12 @@
 {
   lib,
   hostVars,
-  inputs,
   pkgs,
   ...
 }:
 let
   features = hostVars.features;
   has = f: builtins.elem f features;
-
-  opencodePkgs = inputs.opencode-nix.packages.${pkgs.system};
 in
 {
   home.packages =
@@ -22,7 +19,7 @@ in
       unzip
       github-copilot-cli
       claude-code
-      opencodePkgs.opencode
+      opencode
       codegraph
       cursor-cli
       awscli2
