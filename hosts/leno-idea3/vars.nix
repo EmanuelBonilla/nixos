@@ -10,6 +10,7 @@
     "x11"
     "zen-browser"
     "app-image"
+    "bluetooth"
   ];
   users = [ "anthe" ];
 }
