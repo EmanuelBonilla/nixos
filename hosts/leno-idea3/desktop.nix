@@ -22,4 +22,5 @@
     layout = "us";
     variant = "";
   };
+  services.blueman.enable = true;
 }
