@@ -6,9 +6,10 @@
     dmenu
     ncspot
     mupen64plus
-    clipmenu
     firefox
     thunderbird
     onlyoffice-desktopeditors
   ];
+
+  services.copyq.enable = true;
 }
