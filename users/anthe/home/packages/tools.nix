@@ -25,6 +25,7 @@ in
       awscli2
       openspec
       ssm-session-manager-plugin
+      btop
     ]
     ++ lib.optionals (has "x11") [ xclip ]
     ++ lib.optionals (has "wayland") [ wl-clipboard ];
