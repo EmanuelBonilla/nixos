@@ -9,6 +9,7 @@
     firefox
     thunderbird
     onlyoffice-desktopeditors
+    scrot
   ];
 
   services.copyq.enable = true;
