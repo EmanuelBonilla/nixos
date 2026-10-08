@@ -27,6 +27,7 @@ in
       ssm-session-manager-plugin
       btop
       unrar
+      snx-rs
     ]
     ++ lib.optionals (has "x11") [ xclip ]
     ++ lib.optionals (has "wayland") [ wl-clipboard ];
