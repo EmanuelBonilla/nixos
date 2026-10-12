@@ -28,6 +28,7 @@ in
       btop
       unrar
       snx-rs
+      jq
     ]
     ++ lib.optionals (has "x11") [ xclip ]
     ++ lib.optionals (has "wayland") [ wl-clipboard ];
