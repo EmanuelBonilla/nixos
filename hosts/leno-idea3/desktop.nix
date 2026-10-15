@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   time.timeZone = "America/Bogota";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -15,12 +15,26 @@
     LC_TIME = "es_CO.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.xfce.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  programs.niri.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+  };
+  environment.systemPackages = with pkgs; [ xwayland-satellite fuzzel swaybg waybar swaylock];
+
   services.blueman.enable = true;
+
+  programs.steam.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
