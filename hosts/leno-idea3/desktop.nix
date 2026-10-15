@@ -18,17 +18,17 @@
   # services.xserver.enable = true;
   # services.xserver.displayManager.lightdm.enable = true;
   # services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "";
+  # };
 
   programs.niri.enable = true;
   services.greetd = {
     enable = true;
     settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
   };
-  environment.systemPackages = with pkgs; [ xwayland-satellite fuzzel swaybg waybar swaylock];
+  environment.systemPackages = with pkgs; [ xwayland-satellite fuzzel swaybg waybar swaylock brightnessctl playerctl eww antigravity-hub];
 
   services.blueman.enable = true;
 
