@@ -5,10 +5,11 @@
   mainUser = "anthe";
   features = [
     "desktop"
-    "x11-i3"
     "x11"
-    "networkmanager"
-    "falkon"
+    "x11/i3"
+    "services"
+    "services/networkmanager"
+    "apps/falkon"
   ];
   users = [ "anthe" ];
 }

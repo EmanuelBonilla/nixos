@@ -123,6 +123,27 @@
         "type": "github"
       }
     },
+    "nvlt": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792279138,
+        "narHash": "sha256-Fqg5AkLMpiDtjc4UkmV6gVxYsxB5bDtmYcBjdtwVxkg=",
+        "owner": "noema-rs",
+        "repo": "nvlt",
+        "rev": "05753059af7d0ec0f9de73e08243f339f5996e77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noema-rs",
+        "ref": "v0.1.52",
+        "repo": "nvlt",
+        "type": "github"
+      }
+    },
     "opencode-nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -148,6 +169,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixos25_05": "nixos25_05",
         "nixpkgs": "nixpkgs",
+        "nvlt": "nvlt",
         "opencode-nix": "opencode-nix",
         "zen-browser": "zen-browser"
       }

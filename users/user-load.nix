@@ -5,7 +5,7 @@
 }:
 let
   features = hostVars.features or [ ];
-  mkFeatureHomePath = f: ../features + "/${f}/home/default.nix";
+  mkFeatureHomePath = f: ../features + "/${f}/home.nix";
 in
 {
   home.stateVersion = hostVars.homeStateVersion;

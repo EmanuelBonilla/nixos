@@ -1,4 +1,4 @@
-{ ... }:
+{ hostVars, ... }:
 {
   services.xserver = {
     enable = true;
@@ -8,7 +8,7 @@
     enable = true;
     autoLogin = {
       enable = true;
-      user = "anthe";
+      user = hostVars.mainUser;
     };
   };
 }

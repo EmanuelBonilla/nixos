@@ -5,7 +5,12 @@
   mainUser = "anthe";
   features = [
     "x11"
-    "docker"
+    "services"
+    "services/docker"
+    "services/graphics"
+    "apps/steam"
+    "apps/nvlt"
+    "nix-ld"
   ];
   users = [ "anthe" ];
 }

@@ -19,6 +19,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvlt = {
+      url = "github:noema-rs/nvlt/v0.1.52";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

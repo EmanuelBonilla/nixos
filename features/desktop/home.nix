@@ -3,14 +3,16 @@
   home.packages = with pkgs; [
     kitty
     vlc
-    dmenu
-    ncspot
-    mupen64plus
-    firefox
     thunderbird
     onlyoffice-desktopeditors
-    scrot
+    brightnessctl
+    playerctl
+    obs-studio
+    gimp
+    imv
+    qalculate-gtk
   ];
 
   services.copyq.enable = true;
+  services.blueman.enable = true;
 }
