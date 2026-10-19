@@ -93,6 +93,7 @@
     in
     {
       nixosConfigurations = {
+        "atdf15" = mkHost { hostName = "atdf15"; };
         "leno-idea3" = mkHost { hostName = "leno-idea3"; };
         "wsl-atdf15" = mkHost { hostName = "wsl-atdf15"; };
         "samd-e1" = mkHost { hostName = "samd-e1"; };
