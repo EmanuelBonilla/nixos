@@ -23,6 +23,10 @@
       url = "github:noema-rs/nvlt/v0.1.52";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-float-sticky = {
+      url = "github:probeldev/niri-float-sticky";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

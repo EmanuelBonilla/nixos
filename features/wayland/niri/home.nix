@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     fuzzel
@@ -6,5 +6,6 @@
     waybar
     swaylock
     eww
+    inputs.niri-float-sticky.packages.${pkgs.system}.default
   ];
 }
