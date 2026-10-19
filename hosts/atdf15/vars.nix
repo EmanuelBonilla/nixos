@@ -16,7 +16,7 @@
     "services/bluetooth"
     "services/pipewire"
     "services/networkmanager"
-    "services/nvidia"
+    "nvidia-integrated"
     "wayland"
     "wayland/niri"
     "desktop"
