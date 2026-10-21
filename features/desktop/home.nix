@@ -7,7 +7,7 @@
     onlyoffice-desktopeditors
     brightnessctl
     playerctl
-    obs-studio
+    proton-vpn
     gimp
     imv
     qalculate-gtk
