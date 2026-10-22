@@ -23,6 +23,7 @@
     "apps/nvlt"
     "apps/steam"
     "apps/zen-browser"
+    "app-image"
     "flatpak"
   ];
   # Nvidia Drivers only for feature services/nvidia
